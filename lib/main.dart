@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluxstore/app/routes/app_pages.dart';
+import 'package:fluxstore/config/app_theme.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,12 +12,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'FluxStore',
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+      theme: AppThemes.lightTheme,
+      darkTheme: AppThemes.darkTheme,
+      themeMode: ThemeMode.light,
     );
   }
 }
