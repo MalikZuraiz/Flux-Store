@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fluxstore/app/routes/app_pages.dart';
+import 'package:fluxstore/app/modules/sign_in/controllers/sign_in_controller.dart';
 import 'package:fluxstore/widgets/customized_textfield.dart';
 import 'package:get/get.dart';
-import '../controllers/sign_up_controller.dart';
 
-class SignUpView extends GetView<SignUpController> {
-  const SignUpView({super.key});
-
+class SignInView extends GetView<SignInController> {
+  // Replace with actual controller
+  const SignInView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,23 +18,18 @@ class SignUpView extends GetView<SignUpController> {
             const SizedBox(height: 30),
             _buildHeading(),
             const SizedBox(height: 30),
-            const CustomTextField(label: 'Enter your name'),
-            const SizedBox(height: 20),
             const CustomTextField(label: 'Enter your Email'),
             const SizedBox(height: 20),
             const CustomTextField(
                 label: 'Enter your Password', isPassword: true),
-            const SizedBox(height: 20),
-            const CustomTextField(
-                label: 'Enter your Confirm Password', isPassword: true),
             const SizedBox(height: 30),
-            _buildCustomButton('Sign Up', () {
-              // Add sign-up logic here
+            _buildCustomButton('Log In', () {
+              // Add login logic here
             }),
             const SizedBox(height: 20),
             _buildOrSignInWithText(),
             const Spacer(),
-            _buildSignInText(),
+            _buildSignUpText(),
             const SizedBox(height: 20),
           ],
         ),
@@ -46,7 +40,7 @@ class SignUpView extends GetView<SignUpController> {
   // Method to create the heading
   Widget _buildHeading() {
     return const Text(
-      'Create an account',
+      'Welcome Back',
       style: TextStyle(
         fontSize: 28,
         fontWeight: FontWeight.bold,
@@ -80,26 +74,25 @@ class SignUpView extends GetView<SignUpController> {
     );
   }
 
-  // Method to create the "or sign in with" text
+  // Method to create the "or log in with" text
   Widget _buildOrSignInWithText() {
     return const Center(
-      child: Text('or sign up with'),
+      child: Text('or log in with'),
     );
   }
 
-  // Method to create "Already have an account? Sign In" text
-  Widget _buildSignInText() {
+  // Method to create "Don't have an account? Sign Up" text
+  Widget _buildSignUpText() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Already have an account? "),
+        const Text("Don't have an account? "),
         GestureDetector(
           onTap: () {
-            // Add Sign-In logic here
-            Get.toNamed(Routes.SIGN_IN);
+            // Add Sign-Up navigation logic here
           },
           child: const Text(
-            'Sign In',
+            'Sign Up',
             style: TextStyle(
               color: Colors.blue,
               fontWeight: FontWeight.bold,
