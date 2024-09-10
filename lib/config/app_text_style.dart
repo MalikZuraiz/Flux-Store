@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
-  // 13pt Regular Poppins
+  // 13pt Regular ProductSans
   static const TextStyle labelSmallRegular = TextStyle(
     fontSize: 13,
-    fontFamily: 'Poppins',
+    fontFamily: 'ProductSans',
     fontWeight: FontWeight.w400, // Regular
   );
 
   static const TextStyle labelSmallMedium = TextStyle(
     fontSize: 13,
-    fontFamily: 'Poppins',
+    fontFamily: 'ProductSans',
     fontWeight: FontWeight.w500, // Medium
   );
 
-  // 15pt Regular Poppins
+  // 15pt Regular ProductSans
   static const TextStyle labelMediumRegular = TextStyle(
     fontSize: 15,
-    fontFamily: 'Poppins',
+    fontFamily: 'ProductSans',
     fontWeight: FontWeight.w400, // Regular
   );
 
-  // 18pt Medium Poppins
+  // 18pt Medium ProductSans
   static const TextStyle labelLargeMedium = TextStyle(
     fontSize: 18,
-    fontFamily: 'Poppins',
+    fontFamily: 'ProductSans',
     fontWeight: FontWeight.w500, // Medium
   );
 
@@ -42,10 +42,10 @@ class AppTextStyles {
     fontStyle: FontStyle.italic, // Italic
   );
 
-  // 10pt Light Poppins
+  // 10pt Light ProductSans
   static const TextStyle labelExtraSmallLight = TextStyle(
     fontSize: 11,
-    fontFamily: 'Poppins',
+    fontFamily: 'ProductSans',
     fontWeight: FontWeight.w300, // Light
     color: Color(0xFF858585), // Light gray color for subtle text
   );

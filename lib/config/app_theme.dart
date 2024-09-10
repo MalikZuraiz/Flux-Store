@@ -3,7 +3,7 @@ import 'package:fluxstore/config/app_colors.dart';
 import 'package:fluxstore/config/text_theme.dart';
 
 /// Font family string
-const String fontFamily = 'Montserrat';
+const String fontFamily = 'ProductSans'; // Updated to ProductSans
 
 /// Styles class holding app theming information
 class AppThemes {
@@ -53,7 +53,7 @@ class AppThemes {
 
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: <TargetPlatform, PageTransitionsBuilder>{
-          TargetPlatform.android: const ZoomPageTransitionsBuilder(
+          TargetPlatform.android: ZoomPageTransitionsBuilder(
             allowEnterRouteSnapshotting: false,
           ),
         },
@@ -103,7 +103,7 @@ class AppThemes {
       ),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: <TargetPlatform, PageTransitionsBuilder>{
-          TargetPlatform.android: const ZoomPageTransitionsBuilder(
+          TargetPlatform.android: ZoomPageTransitionsBuilder(
             allowEnterRouteSnapshotting: false,
           ),
         },
