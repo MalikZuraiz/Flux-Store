@@ -1,18 +1,22 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:fluxstore/config/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onTap;
-  final double borderWidth; // Add this parameter to specify border width
+  final double borderWidth; // Parameter for border width
+  final Color? backgroundColor; // Optional parameter for background color
+  final double width; // Parameter for button width with a default value
 
+  // Default width set to 200 (or whatever your default width was before)
   const CustomButton({
     super.key,
     required this.text,
     required this.onTap,
-    this.borderWidth = 2.0, // Default border width
+    this.borderWidth = 0.0, // Default border width
+    this.backgroundColor, // Default is null, meaning no custom background color
+    this.width = 500.0, // Default width value
   });
 
   @override
@@ -21,6 +25,7 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 60, // Fixed height
+        width: width, // Use provided width or default value
         padding:
             const EdgeInsets.symmetric(horizontal: 40), // Horizontal padding
         decoration: BoxDecoration(
@@ -33,7 +38,9 @@ class CustomButton extends StatelessWidget {
             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
             child: Container(
               decoration: BoxDecoration(
-                color: AppColors.WHITE_COLOR.withOpacity(0.3), // Blur effect
+                color: backgroundColor ??
+                    AppColors.WHITE_COLOR
+                        .withOpacity(0.3), // Use custom color if provided
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
                   color: AppColors.WHITE_COLOR.withOpacity(0.8),

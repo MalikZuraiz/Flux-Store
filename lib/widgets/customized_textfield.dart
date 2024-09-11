@@ -16,6 +16,7 @@ class CustomTextField extends StatelessWidget {
       obscureText: isPassword,
       decoration: InputDecoration(
         labelText: label,
+        labelStyle: const TextStyle(fontWeight: FontWeight.w300, fontSize: 14),
         border: const UnderlineInputBorder(), // Bottom border when unfocused
         enabledBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.grey), // Color when unfocused

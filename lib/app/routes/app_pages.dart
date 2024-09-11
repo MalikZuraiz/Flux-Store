@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 
+import '../modules/Home/bindings/home_binding.dart';
+import '../modules/Home/views/home_view.dart';
+import '../modules/forgot_password/bindings/forgot_password_binding.dart';
+import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
 import '../modules/sign_in/bindings/sign_in_binding.dart';
@@ -36,6 +40,16 @@ class AppPages {
       name: _Paths.ONBOARDING,
       page: () => OnboardingView(),
       binding: OnboardingBinding(),
+    ),
+    GetPage(
+      name: _Paths.HOME,
+      page: () => const HomeView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGOT_PASSWORD,
+      page: () => const ForgotPasswordView(),
+      binding: ForgotPasswordBinding(),
     ),
   ];
 }

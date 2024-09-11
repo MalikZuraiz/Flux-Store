@@ -87,6 +87,8 @@ class WelcomeView extends GetView<WelcomeController> {
   Widget _buildGetStartedButton() {
     return CustomButton(
       text: 'Get Started',
+      borderWidth: 2.0, // Set 2px border width
+      // borderColor: Colors.white, // Set border color to white
       onTap: () {
         Get.offAllNamed(Routes.ONBOARDING);
         // Handle button tap (e.g., navigate to another screen)

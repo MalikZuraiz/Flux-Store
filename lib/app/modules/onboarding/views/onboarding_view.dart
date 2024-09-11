@@ -12,8 +12,6 @@ class OnboardingView extends GetView<OnboardingController> {
 
   @override
   final OnboardingController controller = Get.put(OnboardingController());
-
-  // List of images from the AppImages file
   final List<String> images = [
     AppImages.ONBOARD1_IMAGE,
     AppImages.ONBOARD2_IMAGE,
@@ -27,128 +25,138 @@ class OnboardingView extends GetView<OnboardingController> {
     return Scaffold(
       body: Stack(
         children: [
-          // Bottom background container with black color (#464447)
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: screenHeight * 0.4, // 40% height for the black section
-            child: Container(
-              color: const Color(0xFF464447),
-            ),
-          ),
+          // Bottom black background (40% of the screen)
+          _buildBottomBlackContainer(screenHeight),
 
-          // Upper white part of the screen (60%)
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            height: screenHeight * 0.6, // 60% height for the white section
-            child: Container(
-              color: Colors.white,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Obx(() {
-                    return Column(
-                      children: [
-                        SizedBox(height: screenHeight * 0.12),
-                        Text(
-                          controller.headings[controller.currentIndex.value],
-                          style: AppTextStyles.labelLargeMedium.copyWith(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 28,
-                              color: AppColors.BLACK_COLOR),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          controller.subheadings[controller.currentIndex.value],
-                          style: AppTextStyles.labelSmallRegular.copyWith(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                              color: AppColors.BLACK_COLOR),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    );
-                  }),
-                ],
-              ),
-            ),
-          ),
+          // Top white section (60% of the screen)
+          _buildTopWhiteSection(screenHeight),
 
-          // Main content container for carousel, dots, and button
-          Positioned.fill(
-            child: Column(
-              children: [
-                SizedBox(height: screenHeight * 0.25), // Spacer for upper part
-
-                // Carousel with custom height (70% on white, 30% on black)
-                Expanded(
-                  child: PageView.builder(
-                    onPageChanged: controller.updateIndex,
-                    itemCount: images.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 40, right: 40.0),
-                        child: Container(
-                          height:
-                              screenHeight * 0.6, // Adjust height for carousel
-                          decoration: BoxDecoration(
-                            color: const Color(
-                                0xFFE7E8E9), // Carousel background color
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Image.asset(
-                            images[index],
-                            fit: BoxFit.fitHeight,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-
-                const SizedBox(height: 40),
-
-                // Dots indicator
-                Obx(() {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(images.length, (index) {
-                      return Container(
-                        margin: const EdgeInsets.all(5),
-                        width: 8,
-                        height: 8,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: controller.currentIndex.value == index
-                              ? Colors.white
-                              : Colors.grey,
-                        ),
-                      );
-                    }),
-                  );
-                }),
-
-                const SizedBox(height: 20),
-
-                // Custom Button for "Shopping now"
-                CustomButton(
-                  text: 'Shopping now',
-                  onTap: () {
-                    Get.offAllNamed(Routes.SIGN_UP);
-                  },
-                ),
-
-                SizedBox(
-                    height: screenHeight * 0.1), // 20% space below the button
-              ],
-            ),
-          ),
+          // Main content with carousel, dots, and button
+          _buildMainContent(screenHeight),
         ],
       ),
+    );
+  }
+
+  Positioned _buildBottomBlackContainer(double screenHeight) {
+    return Positioned(
+      bottom: 0,
+      left: 0,
+      right: 0,
+      height: screenHeight * 0.4,
+      child: Container(
+        color: const Color(0xFF464447),
+      ),
+    );
+  }
+
+  Positioned _buildTopWhiteSection(double screenHeight) {
+    return Positioned(
+      top: 0,
+      left: 0,
+      right: 0,
+      height: screenHeight * 0.6,
+      child: Container(
+        color: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: screenHeight * 0.12),
+            Obx(() {
+              return Column(
+                children: [
+                  Text(
+                    controller.headings[controller.currentIndex.value],
+                    style: AppTextStyles.labelLargeMedium.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 28,
+                      color: AppColors.BLACK_COLOR,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    controller.subheadings[controller.currentIndex.value],
+                    style: AppTextStyles.labelSmallRegular.copyWith(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                      color: AppColors.BLACK_COLOR,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              );
+            }),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Positioned _buildMainContent(double screenHeight) {
+    return Positioned.fill(
+      child: Column(
+        children: [
+          SizedBox(height: screenHeight * 0.25), // Spacer for top section
+          Expanded(
+            child: PageView.builder(
+              onPageChanged: controller.updateIndex,
+              itemCount: images.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Container(
+                    height: screenHeight * 0.6,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFE7E8E9),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Image.asset(
+                      images[index],
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 40),
+          _buildDotsIndicator(),
+          const SizedBox(height: 20),
+          _buildShoppingNowButton(),
+          SizedBox(height: screenHeight * 0.1), // 20% space below the button
+        ],
+      ),
+    );
+  }
+
+  Obx _buildDotsIndicator() {
+    return Obx(() {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(images.length, (index) {
+          return Container(
+            margin: const EdgeInsets.all(5),
+            width: 8,
+            height: 8,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: controller.currentIndex.value == index
+                  ? Colors.white
+                  : Colors.grey,
+            ),
+          );
+        }),
+      );
+    });
+  }
+
+  CustomButton _buildShoppingNowButton() {
+    return CustomButton(
+      text: 'Shopping now',
+      onTap: () {
+        Get.offAllNamed(Routes.SIGN_UP);
+      },
     );
   }
 }
