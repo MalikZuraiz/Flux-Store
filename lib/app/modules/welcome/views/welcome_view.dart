@@ -52,9 +52,9 @@ class WelcomeView extends GetView<WelcomeController> {
       child: Column(
         children: [
           _buildHeading(),
-          SizedBox(height: height * 0.05),
+          SizedBox(height: height * 0.01),
           _buildSubHeading(),
-          SizedBox(height: height * 0.05),
+          SizedBox(height: height * 0.06),
           _buildGetStartedButton(),
         ],
       ),
@@ -88,7 +88,7 @@ class WelcomeView extends GetView<WelcomeController> {
     return CustomButton(
       text: 'Get Started',
       onTap: () {
-        Get.offAllNamed(Routes.SIGN_UP);
+        Get.offAllNamed(Routes.ONBOARDING);
         // Handle button tap (e.g., navigate to another screen)
       },
     );
