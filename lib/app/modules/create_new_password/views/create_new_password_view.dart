@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluxstore/app/routes/app_pages.dart';
+import 'package:fluxstore/config/app_colors.dart';
 import 'package:fluxstore/config/app_images.dart';
 import 'package:fluxstore/widgets/customized_reuse_button.dart';
 import 'package:fluxstore/widgets/customized_textfield.dart';

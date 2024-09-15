@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluxstore/app/routes/app_pages.dart';
+import 'package:fluxstore/config/app_images.dart';
+import 'package:fluxstore/widgets/customized_reuse_button.dart';
 import 'package:fluxstore/widgets/customized_textfield.dart';
 import 'package:get/get.dart';
 import '../controllers/sign_up_controller.dart';
@@ -12,11 +14,12 @@ class SignUpView extends GetView<SignUpController> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 30),
+            const SizedBox(
+                height: 50), // Adjust this if you need more space from the top
             _buildHeading(),
             const SizedBox(height: 30),
             const CustomTextField(label: 'Enter your name'),
@@ -29,12 +32,12 @@ class SignUpView extends GetView<SignUpController> {
             const CustomTextField(
                 label: 'Enter your Confirm Password', isPassword: true),
             const SizedBox(height: 30),
-            _buildCustomButton('Sign Up', () {
-              // Add sign-up logic here
-            }),
+            _buildGetStartedButton(),
             const SizedBox(height: 20),
             _buildOrSignInWithText(),
-            const Spacer(),
+            const SizedBox(height: 20),
+            _buildSocialIcons(),
+            const SizedBox(height: 20),
             _buildSignInText(),
             const SizedBox(height: 20),
           ],
@@ -45,38 +48,24 @@ class SignUpView extends GetView<SignUpController> {
 
   // Method to create the heading
   Widget _buildHeading() {
-    return const Text(
-      'Create an account',
-      style: TextStyle(
-        fontSize: 28,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-
-  // Method to create a custom button
-  Widget _buildCustomButton(String text, VoidCallback onPressed) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Colors.blue, Colors.blueAccent],
-          ),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Center(
-          child: Text(
-            text,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-            ),
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Create',
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
           ),
         ),
-      ),
+        Text(
+          'your account',
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     );
   }
 
@@ -84,6 +73,41 @@ class SignUpView extends GetView<SignUpController> {
   Widget _buildOrSignInWithText() {
     return const Center(
       child: Text('or sign up with'),
+    );
+  }
+
+  // Method to create social icons
+  Widget _buildSocialIcons() {
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _buildSocialIcon(AppImages.APPLE_ICON),
+          const SizedBox(width: 20),
+          _buildSocialIcon(AppImages.GOOGLE_ICON),
+          const SizedBox(width: 20),
+          _buildSocialIcon(AppImages.FB_ICON),
+        ],
+      ),
+    );
+  }
+
+  // Method to create individual social icon
+  Widget _buildSocialIcon(String assetPath) {
+    return Container(
+      width: 50,
+      height: 50,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey, width: 1),
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Center(
+        child: Image.asset(
+          assetPath,
+          width: 24,
+          height: 24,
+        ),
+      ),
     );
   }
 
@@ -107,6 +131,17 @@ class SignUpView extends GetView<SignUpController> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildGetStartedButton() {
+    return CustomButton(
+      text: 'Sign Up',
+      onTap: () {
+        Get.offAllNamed(Routes.LANDING_PAGE);
+      },
+      backgroundColor: Colors.black, // Set the background color to black
+      width: 300, // Set a specific width for the button (optional)
     );
   }
 }
