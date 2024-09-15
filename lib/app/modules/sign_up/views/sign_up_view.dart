@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:fluxstore/app/routes/app_pages.dart';
 import 'package:fluxstore/config/app_images.dart';
@@ -139,7 +138,7 @@ class SignUpView extends GetView<SignUpController> {
     return CustomButton(
       text: 'Sign Up',
       onTap: () {
-        Get.offAllNamed(Routes.HOME);
+        Get.offAllNamed(Routes.LANDING_PAGE);
       },
       backgroundColor: Colors.black, // Set the background color to black
       width: 300, // Set a specific width for the button (optional)

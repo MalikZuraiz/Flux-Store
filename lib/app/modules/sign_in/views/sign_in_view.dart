@@ -163,7 +163,7 @@ class SignInView extends GetView<SignInController> {
     return CustomButton(
       text: 'Log In',
       onTap: () {
-        Get.offAllNamed(Routes.HOME);
+        Get.offAllNamed(Routes.LANDING_PAGE);
       },
       backgroundColor: Colors.black, // Set the background color to black
       width: 300, // Set a specific width for the button (optional)

@@ -154,6 +154,7 @@ class OnboardingView extends GetView<OnboardingController> {
   CustomButton _buildShoppingNowButton() {
     return CustomButton(
       text: 'Shopping now',
+      borderWidth: 2.0,
       onTap: () {
         Get.offAllNamed(Routes.SIGN_UP);
       },

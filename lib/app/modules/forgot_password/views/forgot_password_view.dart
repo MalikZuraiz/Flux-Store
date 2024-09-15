@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluxstore/app/routes/app_pages.dart';
 import 'package:fluxstore/widgets/customized_textfield.dart';
 import 'package:get/get.dart';
 import 'package:fluxstore/widgets/customized_reuse_button.dart'; // Assuming this is the custom button widget
@@ -61,7 +62,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
               child: CustomButton(
                 text: 'Reset Password',
                 onTap: () {
-                  // Add your reset password logic here
+                  Get.toNamed(Routes.CREATE_NEW_PASSWORD);
                 },
                 backgroundColor: Colors.black, // Button color
                 width: 300, // Adjust width of the button as required
