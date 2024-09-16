@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../modules/about_us/bindings/about_us_binding.dart';
 import '../modules/about_us/views/about_us_view.dart';
 import '../modules/cart/bindings/cart_binding.dart';
@@ -9,6 +10,8 @@ import '../modules/discover/bindings/discover_binding.dart';
 import '../modules/discover/views/discover_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
+import '../modules/found_results/bindings/found_results_binding.dart';
+import '../modules/found_results/views/found_results_view.dart';
 import '../modules/homepage/bindings/homepage_binding.dart';
 import '../modules/homepage/views/homepage_view.dart';
 import '../modules/landing_page/bindings/landing_page_binding.dart';
@@ -105,6 +108,11 @@ class AppPages {
       name: _Paths.ABOUT_US,
       page: () => const AboutUsView(),
       binding: AboutUsBinding(),
+    ),
+    GetPage(
+      name: _Paths.FOUND_RESULTS,
+      page: () => const FoundResultsView(),
+      binding: FoundResultsBinding(),
     ),
   ];
 }

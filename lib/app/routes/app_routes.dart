@@ -18,6 +18,7 @@ abstract class Routes {
   static const SETTING = _Paths.SETTING;
   static const SUPPORT = _Paths.SUPPORT;
   static const ABOUT_US = _Paths.ABOUT_US;
+  static const FOUND_RESULTS = _Paths.FOUND_RESULTS;
 }
 
 abstract class _Paths {
@@ -37,4 +38,5 @@ abstract class _Paths {
   static const SETTING = '/setting';
   static const SUPPORT = '/support';
   static const ABOUT_US = '/about-us';
+  static const FOUND_RESULTS = '/found-results';
 }

@@ -17,7 +17,7 @@ class _LandingPageViewState extends State<LandingPageView> {
   // Define a list of pages for navigation
   final List<Widget> _pages = [
     const HomepageView(), // Corresponding screens for navigation
-    const DiscoverView(),
+    DiscoverView(),
     const CartView(),
     const ProfileView(),
   ];
