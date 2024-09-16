@@ -10,4 +10,8 @@ class AppImages {
   static const String APPLE_ICON = 'assets/images/Apple.png';
   static const String SUCCESS_ICON = 'assets/images/Success.png';
   static const String AVATAR_ICON = 'assets/images/avatar.png';
+  static const String PLACEHOLDER_IMAGE = 'assets/images/placeholder.png';
+  static const String BOARD_IMAGE1 = 'assets/images/board1.png';
+  static const String BOARD_IMAGE2 = 'assets/images/board2.png';
+  static const String BOARD_IMAGE3 = 'assets/images/board3.png';
 }
