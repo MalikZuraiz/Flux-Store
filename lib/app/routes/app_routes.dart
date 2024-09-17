@@ -23,6 +23,9 @@ abstract class Routes {
   static const APP_SETTING = _Paths.APP_SETTING;
   static const NOTIFICATION = _Paths.NOTIFICATION;
   static const FOUND_RESULTS = _Paths.FOUND_RESULTS;
+  static const PRODUCT_DETAIL = _Paths.PRODUCT_DETAIL;
+  static const YOUR_CART = _Paths.YOUR_CART;
+  static const CHECK_OUT = _Paths.CHECK_OUT;
 }
 
 abstract class _Paths {
@@ -47,4 +50,7 @@ abstract class _Paths {
   static const APP_SETTING = '/app-setting';
   static const NOTIFICATION = '/notification';
   static const FOUND_RESULTS = '/found-results';
+  static const PRODUCT_DETAIL = '/product-detail';
+  static const YOUR_CART = '/your-cart';
+  static const CHECK_OUT = '/check-out';
 }

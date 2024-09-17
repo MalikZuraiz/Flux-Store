@@ -1,12 +1,13 @@
 import 'package:get/get.dart';
 
-
 import '../modules/about_us/bindings/about_us_binding.dart';
 import '../modules/about_us/views/about_us_view.dart';
 import '../modules/app-setting/bindings/app_setting_binding.dart';
 import '../modules/app-setting/views/app_setting_view.dart';
 import '../modules/cart/bindings/cart_binding.dart';
 import '../modules/cart/views/cart_view.dart';
+import '../modules/check_out/bindings/check_out_binding.dart';
+import '../modules/check_out/views/check_out_view.dart';
 import '../modules/create_new_password/bindings/create_new_password_binding.dart';
 import '../modules/create_new_password/views/create_new_password_view.dart';
 import '../modules/discover/bindings/discover_binding.dart';
@@ -23,6 +24,8 @@ import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
+import '../modules/product_detail/bindings/product_detail_binding.dart';
+import '../modules/product_detail/views/product_detail_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/setting/bindings/setting_binding.dart';
@@ -37,13 +40,15 @@ import '../modules/welcome/bindings/welcome_binding.dart';
 import '../modules/welcome/views/welcome_view.dart';
 import '../modules/wishlist/bindings/wishlist_binding.dart';
 import '../modules/wishlist/views/wishlist_view.dart';
+import '../modules/your_cart/bindings/your_cart_binding.dart';
+import '../modules/your_cart/views/your_cart_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.WELCOME;
+  static const INITIAL = Routes.CHECK_OUT;
 
   static final routes = [
     GetPage(
@@ -135,6 +140,21 @@ class AppPages {
       name: _Paths.FOUND_RESULTS,
       page: () => const FoundResultsView(),
       binding: FoundResultsBinding(),
+    ),
+    GetPage(
+      name: _Paths.PRODUCT_DETAIL,
+      page: () => const ProductDetailView(),
+      binding: ProductDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.YOUR_CART,
+      page: () => const YourCartView(),
+      binding: YourCartBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHECK_OUT,
+      page: () => const CheckOutView(),
+      binding: CheckOutBinding(),
     ),
   ];
 }

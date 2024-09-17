@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:fluxstore/config/app_images.dart';
 import 'package:fluxstore/config/app_text_style.dart';
 import 'package:get/get.dart';
 import '../controllers/found_results_controller.dart';
@@ -57,22 +56,24 @@ class FoundResultsView extends GetView<FoundResultsController> {
                         child: Stack(
                           children: [
                             Container(
-                              decoration: BoxDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage(AppImages
-                                      .DISCOVER_IMAGE), // Image for the item
+                              height: 200,
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(16)),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://via.placeholder.com/140x140'), // Replace with product image URL
                                   fit: BoxFit.cover,
                                 ),
-                                borderRadius: BorderRadius.circular(12),
                               ),
                             ),
                             // Like button in the top-right corner
                             Positioned(
-                              right: 8,
-                              top: 8,
+                              right: 2,
+                              top: 0,
                               child: IconButton(
                                 icon: const Icon(Icons.favorite_border),
-                                color: Colors.redAccent,
+                                color: Colors.black,
                                 onPressed: () {
                                   // Handle the "like" button press here
                                 },
