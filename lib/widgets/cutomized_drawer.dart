@@ -101,7 +101,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
               // Other menu items
               _buildMenuItem(
-                  'Settings', Icons.settings_outlined, Routes.SETTING),
+                  'Settings', Icons.settings_outlined, Routes.APP_SETTING),
               _buildMenuItem('Support', Icons.mail_outlined, Routes.SUPPORT),
               _buildMenuItem('About Us', Icons.info_outline, Routes.ABOUT_US),
 

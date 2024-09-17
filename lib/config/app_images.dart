@@ -11,7 +11,4 @@ class AppImages {
   static const String SUCCESS_ICON = 'assets/images/Success.png';
   static const String DRAWER = 'assets/images/drawer.png';
   static const String AVATAR_ICON = 'assets/images/avatar.png';
-  static const String NOTIFICATION_ICON = 'assets/images/notifications.png';
-  static const String DISCOVER_IMAGE = 'assets/images/discover_image.png';
-  static const String SHOES_IMAGE = 'assets/images/shoes.png';
 }

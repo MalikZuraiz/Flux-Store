@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
 
+
 import '../modules/about_us/bindings/about_us_binding.dart';
 import '../modules/about_us/views/about_us_view.dart';
+import '../modules/app-setting/bindings/app_setting_binding.dart';
+import '../modules/app-setting/views/app_setting_view.dart';
 import '../modules/cart/bindings/cart_binding.dart';
 import '../modules/cart/views/cart_view.dart';
 import '../modules/create_new_password/bindings/create_new_password_binding.dart';
@@ -16,6 +19,8 @@ import '../modules/homepage/bindings/homepage_binding.dart';
 import '../modules/homepage/views/homepage_view.dart';
 import '../modules/landing_page/bindings/landing_page_binding.dart';
 import '../modules/landing_page/views/landing_page_view.dart';
+import '../modules/notification/bindings/notification_binding.dart';
+import '../modules/notification/views/notification_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -30,6 +35,8 @@ import '../modules/support/bindings/support_binding.dart';
 import '../modules/support/views/support_view.dart';
 import '../modules/welcome/bindings/welcome_binding.dart';
 import '../modules/welcome/views/welcome_view.dart';
+import '../modules/wishlist/bindings/wishlist_binding.dart';
+import '../modules/wishlist/views/wishlist_view.dart';
 
 part 'app_routes.dart';
 
@@ -108,6 +115,21 @@ class AppPages {
       name: _Paths.ABOUT_US,
       page: () => const AboutUsView(),
       binding: AboutUsBinding(),
+    ),
+    GetPage(
+      name: _Paths.WISHLIST,
+      page: () => const WishlistView(),
+      binding: WishlistBinding(),
+    ),
+    GetPage(
+      name: _Paths.APP_SETTING,
+      page: () => const AppSettingView(),
+      binding: AppSettingBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => const NotificationView(),
+      binding: NotificationBinding(),
     ),
     GetPage(
       name: _Paths.FOUND_RESULTS,
