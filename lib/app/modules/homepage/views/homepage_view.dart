@@ -249,7 +249,7 @@ class HomepageView extends GetView<HomepageController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 180,
+                height: 160,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                   image: DecorationImage(
