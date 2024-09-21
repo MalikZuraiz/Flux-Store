@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluxstore/app/routes/app_pages.dart';
 import 'package:fluxstore/config/app_colors.dart';
 import 'package:fluxstore/config/app_images.dart';
+import 'package:fluxstore/widgets/cutomized_drawer.dart';
 import 'package:get/get.dart';
 import '../controllers/wishlist_controller.dart';
 
@@ -39,6 +41,9 @@ class _WishlistScreenState extends State<WishlistScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(
+        activeMenuItem: 'My Profile',
+      ),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
@@ -47,17 +52,20 @@ class _WishlistScreenState extends State<WishlistScreen>
           style: TextStyle(color: Colors.black, fontSize: 25),
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.menu, color: Colors.black),
-          onPressed: () {
-            // Handle menu action
-          },
-        ),
+
+        // leading: IconButton(
+        //   icon: const Icon(Icons.menu, color: Colors.black),
+        //   onPressed: () {
+        //     //scaffold is not working from here
+
+        //     Scaffold.of(context).openDrawer();
+        //   },
+        // ),
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications, color: Colors.black),
             onPressed: () {
-              // Handle notification action
+              Get.toNamed(Routes.NOTIFICATION);
             },
           ),
         ],

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:fluxstore/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import '../controllers/product_detail_controller.dart';
 
@@ -55,6 +56,7 @@ class ProductDetailView extends GetView<ProductDetailController> {
                   child: ElevatedButton.icon(
                     onPressed: () {
                       // Handle Add to Cart action
+                      Get.toNamed(Routes.YOUR_CART);
                     },
                     icon: const Icon(Icons.shopping_cart, color: Colors.white),
                     label: const Text(

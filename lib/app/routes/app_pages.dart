@@ -8,6 +8,8 @@ import '../modules/cart/bindings/cart_binding.dart';
 import '../modules/cart/views/cart_view.dart';
 import '../modules/check_out/bindings/check_out_binding.dart';
 import '../modules/check_out/views/check_out_view.dart';
+import '../modules/collection/bindings/collection_binding.dart';
+import '../modules/collection/views/collection_view.dart';
 import '../modules/create_new_password/bindings/create_new_password_binding.dart';
 import '../modules/create_new_password/views/create_new_password_view.dart';
 import '../modules/discover/bindings/discover_binding.dart';
@@ -48,7 +50,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.CHECK_OUT;
+  static const INITIAL = Routes.WELCOME;
 
   static final routes = [
     GetPage(
@@ -155,6 +157,11 @@ class AppPages {
       name: _Paths.CHECK_OUT,
       page: () => const CheckOutView(),
       binding: CheckOutBinding(),
+    ),
+    GetPage(
+      name: _Paths.COLLECTION,
+      page: () => const CollectionView(),
+      binding: CollectionBinding(),
     ),
   ];
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluxstore/app/routes/app_pages.dart';
 import 'package:fluxstore/widgets/cutomized_drawer.dart';
 
 import 'package:get/get.dart';
@@ -54,28 +55,33 @@ class HomepageView extends GetView<HomepageController> {
   Widget _buildTopBanner() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Container(
-        height: 180,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          image: const DecorationImage(
-            image: NetworkImage(
-                'https://via.placeholder.com/300x150'), // Replace with your banner image URL
-            fit: BoxFit.cover,
-          ),
-        ),
+      child: GestureDetector(
+        onTap: () {
+          Get.toNamed(Routes.COLLECTION);
+        },
         child: Container(
+          height: 180,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: Colors.black.withOpacity(0.4),
+            image: const DecorationImage(
+              image: NetworkImage(
+                  'https://via.placeholder.com/300x150'), // Replace with your banner image URL
+              fit: BoxFit.cover,
+            ),
           ),
-          child: const Center(
-            child: Text(
-              'Autumn Collection 2021',
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.black.withOpacity(0.4),
+            ),
+            child: const Center(
+              child: Text(
+                'Autumn Collection 2021',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),

@@ -160,13 +160,15 @@ class SignInView extends GetView<SignInController> {
   }
 
   Widget _buildGetStartedButton() {
-    return CustomButton(
-      text: 'Log In',
-      onTap: () {
-        Get.offAllNamed(Routes.LANDING_PAGE);
-      },
-      backgroundColor: Colors.black, // Set the background color to black
-      width: 300, // Set a specific width for the button (optional)
+    return Center(
+      child: CustomButton(
+        text: 'Log In',
+        onTap: () {
+          Get.offAllNamed(Routes.LANDING_PAGE);
+        },
+        backgroundColor: Colors.black, // Set the background color to black
+        width: 300, // Set a specific width for the button (optional)
+      ),
     );
   }
 }

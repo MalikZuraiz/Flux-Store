@@ -85,23 +85,17 @@ class ProfileView extends GetView<ProfileController> {
                   _buildProfileOption(
                       title: 'Address',
                       iconData: Icons.location_on_outlined,
-                      callback: () {
-                        Get.toNamed('/address');
-                      }),
+                      callback: () {}),
                   _buildDivider(),
                   _buildProfileOption(
                       title: 'Payment method',
                       iconData: Icons.payment_outlined,
-                      callback: () {
-                        Get.toNamed('/payment');
-                      }),
+                      callback: () {}),
                   _buildDivider(),
                   _buildProfileOption(
                       title: 'Voucher',
                       iconData: Icons.card_giftcard_outlined,
-                      callback: () {
-                        Get.toNamed('/voucher');
-                      }),
+                      callback: () {}),
                   _buildDivider(),
                   _buildProfileOption(
                       title: 'My Wishlist',
@@ -113,9 +107,7 @@ class ProfileView extends GetView<ProfileController> {
                   _buildProfileOption(
                       title: 'Rate this app',
                       iconData: Icons.star_outline,
-                      callback: () {
-                        // Rate app action
-                      }),
+                      callback: () {}),
                   _buildDivider(),
                   _buildProfileOption(
                       title: 'Log out',

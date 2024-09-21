@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluxstore/app/modules/cart/views/cart_view.dart';
 import 'package:fluxstore/app/modules/discover/views/discover_view.dart';
 import 'package:fluxstore/app/modules/homepage/views/homepage_view.dart';
 import 'package:fluxstore/app/modules/profile/views/profile_view.dart';
@@ -17,8 +16,7 @@ class _LandingPageViewState extends State<LandingPageView> {
   // Define a list of pages for navigation
   final List<Widget> _pages = [
     const HomepageView(), // Corresponding screens for navigation
-    DiscoverView(),
-    const CartView(),
+    const DiscoverView(),
     const ProfileView(),
   ];
 
@@ -74,13 +72,6 @@ class _LandingPageViewState extends State<LandingPageView> {
               BottomNavigationBarItem(
                 icon: Icon(
                   Icons.search_outlined,
-                  size: 30,
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.shopping_bag_outlined,
                   size: 30,
                 ),
                 label: '',

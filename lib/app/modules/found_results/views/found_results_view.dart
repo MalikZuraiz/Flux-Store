@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:fluxstore/app/routes/app_pages.dart';
 import 'package:fluxstore/config/app_text_style.dart';
 import 'package:get/get.dart';
 import '../controllers/found_results_controller.dart';
@@ -44,92 +45,98 @@ class FoundResultsView extends GetView<FoundResultsController> {
           itemCount: items.length, // 20 items
           itemBuilder: (context, index) {
             final item = items[index];
-            return GridTile(
-              child: Stack(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      // Image container with 70% height
-                      Expanded(
-                        flex: 7, // 70% height for the image
-                        child: Stack(
-                          children: [
-                            Container(
-                              height: 200,
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(16)),
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://via.placeholder.com/140x140'), // Replace with product image URL
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            // Like button in the top-right corner
-                            Positioned(
-                              right: 2,
-                              top: 0,
-                              child: IconButton(
-                                icon: const Icon(Icons.favorite_border),
-                                color: Colors.black,
-                                onPressed: () {
-                                  // Handle the "like" button press here
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      // Title and rating of the item (Dress)
-                      Expanded(
-                        flex: 4, // 30% for the title, rating, and price
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+            return GestureDetector(
+              onTap: () {
+                // Handle the item tap here
+                Get.toNamed(Routes.PRODUCT_DETAIL);
+              },
+              child: GridTile(
+                child: Stack(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        // Image container with 70% height
+                        Expanded(
+                          flex: 7, // 70% height for the image
+                          child: Stack(
                             children: [
-                              Text(
-                                item["title"],
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
+                              Container(
+                                height: 200,
+                                decoration: const BoxDecoration(
+                                  borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(16)),
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                        'https://via.placeholder.com/140x140'), // Replace with product image URL
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
-                              const SizedBox(height: 4),
-                              // Star Rating
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: List.generate(5, (starIndex) {
-                                  return Icon(
-                                    Icons.star,
-                                    color: starIndex < item["rating"]
-                                        ? Colors.amber
-                                        : Colors.grey,
-                                    size: 16,
-                                  );
-                                }),
-                              ),
-                              const SizedBox(height: 4),
-                              // Display random price
-                              Text(
-                                '\$${item["price"].toStringAsFixed(2)}',
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.green,
+                              // Like button in the top-right corner
+                              Positioned(
+                                right: 2,
+                                top: 0,
+                                child: IconButton(
+                                  icon: const Icon(Icons.favorite_border),
+                                  color: Colors.black,
+                                  onPressed: () {
+                                    // Handle the "like" button press here
+                                  },
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        // Title and rating of the item (Dress)
+                        Expanded(
+                          flex: 4, // 30% for the title, rating, and price
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  item["title"],
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                // Star Rating
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: List.generate(5, (starIndex) {
+                                    return Icon(
+                                      Icons.star,
+                                      color: starIndex < item["rating"]
+                                          ? Colors.amber
+                                          : Colors.grey,
+                                      size: 16,
+                                    );
+                                  }),
+                                ),
+                                const SizedBox(height: 4),
+                                // Display random price
+                                Text(
+                                  '\$${item["price"].toStringAsFixed(2)}',
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             );
           },

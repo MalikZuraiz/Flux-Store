@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluxstore/app/routes/app_pages.dart';
 import 'package:fluxstore/config/app_text_style.dart';
 import 'package:get/get.dart';
 import '../controllers/your_cart_controller.dart';
@@ -188,6 +189,7 @@ class YourCartView extends GetView<YourCartController> {
                 child: ElevatedButton.icon(
                   onPressed: () {
                     // Handle Add to Cart action
+                    Get.toNamed(Routes.CHECK_OUT);
                   },
                   icon: const Icon(Icons.shopping_cart, color: Colors.white),
                   label: Text(

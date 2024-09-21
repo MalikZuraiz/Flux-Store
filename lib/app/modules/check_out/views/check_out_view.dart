@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluxstore/app/routes/app_pages.dart';
 import 'package:fluxstore/config/app_images.dart';
 import 'package:fluxstore/config/app_text_style.dart';
 import 'package:get/get.dart';
@@ -92,6 +93,7 @@ class CheckOutView extends GetView<CheckOutController> {
                 child: ElevatedButton.icon(
                   onPressed: () {
                     // Handle Add to Cart action
+                    Get.toNamed(Routes.LANDING_PAGE);
                   },
                   label: const Text(
                     'Continue Shopping',
